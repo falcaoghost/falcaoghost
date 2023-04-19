@@ -8,27 +8,6 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <script>
-        // substitua 'seunome' pelo nome do seu canal na Twitch
-        fetch('https://api.twitch.tv/helix/streams?user_login=falcaoghost', {
-          headers: {
-            'Client-ID': 'bh0c5k42jk4nwbzq02vjqsqfk0rb4s' // adicione seu Client-ID da Twitch aqui
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.data.length > 0) {
-            // se estiver online, exiba a imagem de status
-            document.querySelector('img.twitch-status').style.display = 'block';
-          } else {
-            // se estiver offline, oculte a imagem de status
-            document.querySelector('img.twitch-status').style.display = 'none';
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao buscar status da Twitch:', error);
-        });
-      </script>
    <header class="cabecalho">
     <nav class="cabecalho__menu">
         <a class="cabecalho__menu__link" href="index.html">Home</a>
@@ -44,13 +23,16 @@
                 <a class="apresentacao__links__link" href="https://www.instagram.com/falcaoghost">Instagram
                     <img src="./assets/instagram.png" alt="">
                 </a>
-                <a class="apresentacao__links__link"  href="https://www.twitch.tv/falcaoghost">Twitch
-                    <img src="./assets/twitch.png" alt="">
-                    <img src="./assets/live.png" alt="Status da Twitch">
-                </a>                  
+                <a class="apresentacao__links__link" href="https://www.twitch.tv/falcaoghost">Twitch
+                    <img src="./assets/twitch.png" alt=""> 
+                    <span class="img.twitch-status">
+                        <img src="https://img.shields.io/twitch/status/falcaoghost?style=for-the-badge&logo=twitch" alt="Status da Twitch">
+                    </span>
+                </a>
                 <a class="apresentacao__links__link"  href="https://www.tiktok.com/@falcaoghost">Tiktok
                     <img src="./assets/tiktok.png" alt="">
                 </a>
+                
             </div>  
     </section>
         <img src="./assets/imagem.png" alt="Foto do emplema FalcaoGhost">

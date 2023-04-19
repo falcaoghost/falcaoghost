@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FalcaoGhost</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <script>
+        // substitua 'seunome' pelo nome do seu canal na Twitch
+        fetch('https://api.twitch.tv/helix/streams?user_login=falcaoghost', {
+          headers: {
+            'Client-ID': 'seu-client-id-da-twitch' // adicione seu Client-ID da Twitch aqui
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.data.length > 0) {
+            // se estiver online, exiba a imagem de status
+            document.querySelector('img.twitch-status').style.display = 'block';
+          } else {
+            // se estiver offline, oculte a imagem de status
+            document.querySelector('img.twitch-status').style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao buscar status da Twitch:', error);
+        });
+      </script>
+   <header class="cabecalho">
+    <nav class="cabecalho__menu">
+        <a class="cabecalho__menu__link" href="index.html">Home</a>
+        <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
+    </nav>
+   </header>
+   <main class="apresentacao">
+   <section class="apresentacao__conteudo">
+        <h1 class="apresentacao__conteudo__titulo">FalcaoGhost O <strong> STREAMER! </strong></h1>
+        <p class="apresentacao__conteudo__texto">David, mais conhecido como <strong>"FalcaoGhost"</strong>, sempre sonhou em ser um <strong>streamer</strong>. Aos 29 anos, porém, ele passou por uma grande perda: seu querido pai faleceu. A dor da perda foi tão grande que David entrou em  depressão. Foi através de suas transmissões ao vivo que ele encontrou uma forma de se curar e superar esse momento difícil. Hoje, aos 31 anos, David tem um objetivo claro em mente: se tornar um grande <strong>streamer</strong> e alcançar o sucesso em sua carreira. Seu amor pelo streaming é sua maior motivação e ele está determinado a fazer de seus sonhos uma realidade.</p>
+            <div class="apresentacao__links">
+                <h2 class="apresentacao__links_subtitulo"> Acesse minhas redes:</h2>
+                <a class="apresentacao__links__link" href="https://www.instagram.com/falcaoghost">Instagram
+                    <img src="./assets/instagram.png" alt="">
+                </a>
+                <a class="apresentacao__links__link"  href="https://www.twitch.tv/falcaoghost">Twitch
+                    <img src="./assets/twitch.png" alt="">
+                    <img src="./assets/live.png" alt="Status da Twitch">
+                </a>                  
+                <a class="apresentacao__links__link"  href="https://www.tiktok.com/@falcaoghost">Tiktok
+                    <img src="./assets/tiktok.png" alt="">
+                </a>
+            </div>  
+    </section>
+        <img src="./assets/imagem.png" alt="Foto do emplema FalcaoGhost">
+    </main>
+   <footer class="rodape">
+    <p>Desenvolvido por David Valim.</p>
+   </footer> 
+</body>
+</html>
